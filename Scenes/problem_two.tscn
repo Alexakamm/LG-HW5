@@ -9,7 +9,9 @@
 script = ExtResource("1_6drm6")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_txtmd")]
+position = Vector2(537, 417)
 collision_mask = 3
+motion_mode = 0
 movement_speed = 150.0
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -34,4 +36,5 @@ text = "What manner of Crate is this! We do not live in a hockey rink, this is t
 Change some of its settings to make it behave."
 
 [node name="Crate" parent="." instance=ExtResource("4_5fnyh")]
-position = Vector2(456, 384)
+position = Vector2(471, 316)
+gravity_scale = 1.5

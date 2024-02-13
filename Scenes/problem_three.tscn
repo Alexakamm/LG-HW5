@@ -11,6 +11,7 @@ script = ExtResource("1_354yi")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_aa3ml")]
 collision_mask = 3
+motion_mode = 0
 movement_speed = 150.0
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -35,10 +36,12 @@ text = "Where there is a tree, there is gravity (a fact established by Isaac New
 Fix them so they work properly and obey the virtual laws of virtual physics."
 
 [node name="Crate2" parent="." instance=ExtResource("4_jxx4j")]
-position = Vector2(376, 376)
+position = Vector2(367, 132)
+gravity_scale = 1.5
 
 [node name="Crate" parent="." instance=ExtResource("4_jxx4j")]
-position = Vector2(400, 448)
+position = Vector2(391, 204)
+gravity_scale = 1.5
 
 [node name="Tree" type="Sprite2D" parent="."]
 position = Vector2(544, 352)
@@ -46,4 +49,5 @@ scale = Vector2(0.296856, 0.296856)
 texture = ExtResource("5_5oy7u")
 
 [node name="Crate3" parent="." instance=ExtResource("4_jxx4j")]
-position = Vector2(392, 296)
+position = Vector2(424, 53)
+gravity_scale = 1.5

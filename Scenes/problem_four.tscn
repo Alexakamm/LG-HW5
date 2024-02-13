@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://krm5k3qbjil6"]
+[gd_scene load_steps=9 format=3 uid="uid://krm5k3qbjil6"]
 
 [ext_resource type="Script" path="res://Scripts/Rotate.gd" id="1_amvju"]
 [ext_resource type="Script" path="res://Scripts/CharacterMovement.gd" id="2_p8r5b"]
@@ -7,20 +7,28 @@
 [ext_resource type="PackedScene" uid="uid://cj1vyr6kvr67l" path="res://Scenes/crate.tscn" id="4_onmak"]
 [ext_resource type="Texture2D" uid="uid://duqvx7htykro6" path="res://Art/tree.png" id="5_gwuyb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4tdo"]
-size = Vector2(53.8982, 646.778)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nx3oe"]
+size = Vector2(95.711, 91.3728)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a170j"]
+radius = 0.0
+height = 646.779
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_amvju")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(696, 392)
+position = Vector2(704, 264)
 scale = Vector2(1.00302, 1.05064)
-collision_mask = 3
 script = ExtResource("2_p8r5b")
 movement_speed = 150.0
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -3.05176e-05)
+shape = SubResource("RectangleShape2D_nx3oe")
+
 [node name="ParentLogo" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(0, 3.05176e-05)
 scale = Vector2(0.747742, 0.713851)
 texture = ExtResource("3_apj2e")
 
@@ -54,15 +62,20 @@ position = Vector2(400, 448)
 gravity_scale = 1.0
 
 [node name="Tree" type="Sprite2D" parent="."]
+light_mask = 4
+visibility_layer = 4
 position = Vector2(544, 352)
 scale = Vector2(0.296856, 0.296856)
 texture = ExtResource("5_gwuyb")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Tree"]
+light_mask = 4
+visibility_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tree/StaticBody2D"]
-position = Vector2(26.9489, 107.797)
-shape = SubResource("RectangleShape2D_n4tdo")
+position = Vector2(53.8982, 107.796)
+shape = SubResource("CapsuleShape2D_a170j")
+one_way_collision = true
 
 [node name="Crate3" parent="." instance=ExtResource("4_onmak")]
 position = Vector2(392, 296)
